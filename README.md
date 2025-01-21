@@ -27,8 +27,8 @@ If you encounter any bugs or issues, please [create an issue](#) in this reposit
 ## Usage
 To use the script, follow these steps:
 1. Clone the repository.
-2. Install any required dependencies (if applicable).
-3. Run the script on your target KDBX 4 file.
+2. Run the script on your target KDBX 4 file.
+3. If you want to write the output in a file you can always redirect the stdout to the desired file
 
 ## Contributions
 Contributions are welcome! If you have suggestions or improvements, feel free to submit a pull request or open an issue.
