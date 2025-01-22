@@ -1,4 +1,4 @@
-# KeePass2-kdbx-4-header-extract
+# KeePass2 kdbx 4 header extract
 
 ## Introduction
 This script enables the extraction of the outer headers of a KDBX 4 file. 
