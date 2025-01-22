@@ -2,6 +2,7 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
 .DS_Store
+deriveKey.py
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
