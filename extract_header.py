@@ -189,7 +189,7 @@ def readFile(path_file):
         ######## Check for end of Headers ##################
         headerEndFlag=read_fixed_size(file,1,"<B")
         headerEndSize=read_fixed_size(file,4,"<I")
-        headerEnd=read_fixed_size(file,headerEndSize,"<I")
+        headerEnd=read_fixed_size(file,headerEndSize,None,True) # estava fazer unpack ao bytes mas como so queria comparar o valor hex nao era preciso fazer nada
     data={
         "signature":signature,
         "version":version,
@@ -200,7 +200,7 @@ def readFile(path_file):
         "kdfParameters":kdfParameters,
         "headerEndFlag":headerEndFlag,
         "headerEndSize":headerEndSize,
-        "headerEnd":hex(headerEnd)
+        "headerEnd":headerEnd
     }
     return data, varientMapData
 
@@ -235,7 +235,7 @@ def print_values(data,vmdata):
     if vmdata['kdf'] == 1:
         print("This means the used KDF ALgorithm used was Argon2")
         print("Argon2 Iterations:\n entry name ->",vmdata['argon2IterationName'],"\n size ->",vmdata['argon2IterationValueSize'],"\n value ->",vmdata['argon2IterationValue'])
-        print("Argon2 Memory:\n entry name ->",vmdata['argon2MemoryName'],"\n size ->",vmdata['argon2MemoryValueSize'],"\n value ->",bytes_to_mib(vmdata['argon2MemoryValue']),"MiB")
+        print("Argon2 Memory:\n entry name ->",vmdata['argon2MemoryName'],"\n size ->",vmdata['argon2MemoryValueSize'],"\n value ->",vmdata['argon2MemoryValue'],"bytes or",bytes_to_mib(vmdata['argon2MemoryValue']),"MiB")
         print("Argon2 Parallelism:\n entry name ->",vmdata['argon2ParallelismName'],"\n size ->",vmdata['argon2ParallelismValueSize'],"\n value ->",vmdata['argon2ParallelismValue'],"threads")
         print("Argon2 Salt:\n entry name ->",vmdata['argon2SaltName'],"\n size ->",vmdata['argon2SaltValueSize'],"\n value ->",vmdata['argon2SaltValue'],"(hexadecimal)")
         print("Argon2 Version:\n entry name ->",vmdata['argon2VersionName'],"\n size ->",vmdata['argon2VersionValueSize'],"\n value ->",vmdata['argon2VersionValue'],"(hexadecimal)")
