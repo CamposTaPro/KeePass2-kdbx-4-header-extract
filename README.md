@@ -15,6 +15,7 @@ For additional context and resources, I referenced the following:
 - Extracts outer headers from KDBX 4 files.
 - Displays metadata such as the KDF used and other parameters.
 - **Note:** This script only extracts unencrypted outer headers; it does not decrypt any part of the encrypted database.
+- I also added a proof of concept that uses the values extracted from this script to prove that this data can possibly be used to discover the password of the database, more info can be seen in the [Proof of concept folder README](https://github.com/CamposTaPro/KeePass2-kdbx-4-header-extract/tree/main/Proof%20of%20Concept)
 
 ## Motivation
 The script is primarily intended for research purposes, aiding in the analysis of the KDBX format. While it currently focuses on outer header extraction, I may explore further capabilities, such as decrypting inner headers, depending on the scope of my thesis.
