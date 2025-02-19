@@ -6,8 +6,8 @@ This script attempts to brute-force a **KeePass KDBX HMAC signature** by iterati
 I've placed in this folder the database i used to create this proof of concept(`testePoc.kdbx`), but it can be used with any kdbx 4 file as long as the KDF parameters are changed and the size of the header is adjusted. It performs the following steps:
 
 1. **Reads the header (up until the end of header flag)** of the KeePass database file (`testePoc.kdbx`).
-2. **Applies double SHA-256 hashing** to each password candidate.
-3. **Uses Argon2 key derivation** to derive the decryption key.
+2. **Applies double SHA-256 hashing** to each password candidate (composite key).
+3. **Uses Argon2 key derivation** to derive the decryption key (derived key).
 4. **Computes HMAC** using the derived key and predefined parameters.
 5. **Compares the computed HMAC** against the expected value to check if the password is correct.
 6. **Stops if a valid password is found**; otherwise, continues testing the next password.
